@@ -29,17 +29,15 @@ endif
 #########
 ## Commit
 #########
-commit: pre-commit-all
+commit:
 	@echo "\033[0;35m##################\033[0m"
 	@echo "\033[0;35m##  GIT COMMIT  ##\033[0m"
 	@echo "\033[0;35m##################\033[0m"
 	@echo "Running commitizen CHANGELOG.md update..."
-	@poetry run cz changelog
 	@git add .
 	@echo ""
-	@echo "Running comitizen commit..."
-	@poetry run pre-commit run
-	@poetry run cz commit
+	@echo "Running commit..."
+	@git commit
 	@echo ""
 
 ##############
@@ -81,7 +79,6 @@ pre-commit:
 	@echo "\033[0;35m##################\033[0m"
 	@cd ${PROJECT_PATH}/
 	@git add .
-	@pre-commit run
 	@echo ""
 
 pre-commit-all:
@@ -101,7 +98,6 @@ pre-commit-all:
 	@poetry run pre-commit run --all-files black
 	@poetry run pre-commit run --all-files bandit
 	@poetry run pre-commit run --all-files isort
-
 
 #######
 ## Help
