@@ -2,7 +2,7 @@
 
 ## Authors
 
-- Author [<author_1@gmail.com>]
+- Author 1 [<author_1@gmail.com>]
 
 ## Model requirements
 - [ ] MkDocs
@@ -22,20 +22,19 @@
   - [ ] Execution time
   - [ ] Memory usage
 - [ ] CI/CD
-  - [ ] GitHub Actions Jenkins
-  - [ ] Jenkins Actions Code Quality
+  - [ ] GitHub Actions 
 - [ ] Research notebooks
 
 ## Install
 
 With **Pip**
 ```bash
-pip install git+ssh://git@github.com/LyticaMx/{{cookiecutter.project}}@v0.1.0
+pip install git+ssh://git@github.com/{{cookiecutter.repository}}/{{cookiecutter.project}}@v0.1.0
 ```
 
 With **Poetry**
 ```bash
-poetry add git+ssh://git@github.com/LyticaMx/{{cookiecutter.project}}@v0.1.0
+poetry add git+ssh://git@github.com/{{cookiecutter.repository}}/{{cookiecutter.project}}@v0.1.0
 ```
 
 ## Documentation

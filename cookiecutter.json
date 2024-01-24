@@ -1,5 +1,6 @@
 {
-    "project": "<project_name>", # Example: gpt4all-chatbot
+    "project": "<project_name>", 
     "description": "Project description.",
-    "author(s)": "Author 1 <author_1@gmail.com>; Author 2 <author_2@gmail.com>"
+    "author(s)": "Author 1 <author_1@gmail.com>; Author 2 <author_2@gmail.com>",
+    "repository": "Name of the Github profile."
 }
