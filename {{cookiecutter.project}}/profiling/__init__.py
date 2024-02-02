@@ -1,1 +1,1 @@
-"""{{cookiecutter.module_name.capitalize()}} profilings."""
+"""{{cookiecutter.project.capitalize()}} profilings."""

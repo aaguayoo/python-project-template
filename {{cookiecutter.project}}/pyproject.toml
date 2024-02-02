@@ -2,7 +2,7 @@
 name = "{{cookiecutter.project}}"
 version = "0.1.0"
 description = "{{cookiecutter.description.capitalize()}}"
-authors = ["{{cookiecutter.authors.capitalize()}}"]
+author = ["{{cookiecutter.author}}"]
 packages = [{include="{{cookiecutter.project}}"}]
 
 [tool.poetry.dependencies]
