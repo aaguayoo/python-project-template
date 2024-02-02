@@ -47,7 +47,7 @@ major_version_zero = true
 
 [tool.coverage.run]
 source = [
-    "{{cookiecutter.package.lower()}}{{cookiecutter.module_name.capitalize()}}/",
+    "{{cookiecutter.project}}/",
 ]
 omit = [
     'tests/',
@@ -60,7 +60,7 @@ multi_line_output = 3
 include_trailing_comma = true
 default_section = "THIRDPARTY"
 known_third_party = []
-known_first_party = ["{{cookiecutter.package.lower()}}{{cookiecutter.module_name.capitalize()}}"]
+known_first_party = ["{{cookiecutter.project}}"]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
