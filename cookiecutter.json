@@ -1,6 +1,12 @@
 {
-    "project": "<project_name>", 
-    "description": "Project description.",
-    "author": "Author 1 <author_1@gmail.com>",
-    "repository": "Name of the Github profile."
+    "bitbucket_username": "bitbucket.username",
+    "bitbucket_reponame": "bitbucket-reponame",
+	"author": "{{cookiecutter.bitbucket_username.title().replace('.',' ')}}",
+    "email": "{{cookiecutter.bitbucket_username}}@bbva.com",
+	"project_name": "{{cookiecutter.bitbucket_reponame.title().replace('-',' ')}}",
+    "project_slug": "{{cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_')}}",
+	"description": "<Brief description of the project>",
+    "_copy_without_render": [
+        ".cz.toml"
+    ]
 }
