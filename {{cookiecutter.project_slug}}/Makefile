@@ -52,6 +52,8 @@ ifdef version
 	echo "Changing from version v$$old_version to v${version}..."; \
 	cat pyproject.toml | awk '/^version =/{gsub($$3,"\"${version}\"")};{print}' > temp && mv temp pyproject.toml; \
 	cat docs/design_doc.md | awk '/- Version:/{gsub($$3,"${version}")};{print}' > temp && mv temp docs/design_doc.md; \
+	cat docs/index.md | awk '/Version:/{gsub($$3,"${version}")};{print}' > temp && mv temp docs/index.md; \
+	cat README.md | awk '/Version:/{gsub($$3,"${version}")};{print}' > temp && mv temp README.md; \
 	cat {{cookiecutter.project_slug}}/__init__.py | awk '/^__version__ =/{gsub($$3,"\"${version}\"")};{print}' > temp && mv temp {{cookiecutter.project_slug}}/__init__.py; \
 	cat tests/test_{{cookiecutter.project_slug}}.py | awk '/__version__ ==/{gsub($$4,"\"${version}\"")};{print}' > temp && mv temp tests/test_{{cookiecutter.project_slug}}.py
 	@echo ""

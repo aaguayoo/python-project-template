@@ -1,14 +1,20 @@
-![AIF](docs/img/bbva.png)
-
 # {{cookiecutter.project_name.title()}}
+
+Version: 0.1.0
+
+---
 
 ## Author(s)
 
 - {{cookiecutter.author}} [[{{cookiecutter.email}}](mailto:{{cookiecutter.email}})]
 
+---
+
 ## Description
 
 {{cookiecutter.description}}
+
+---
 
 ## Project requirements
 
@@ -33,7 +39,7 @@
   - [ ] Memory usage
   - [ ] CPU usage
 - [ ] CI/CD 
-  - [ ] Bitbucket actions
+  - [ ] git actions
   - [ ] Jenkins
 - [ ] Demo app
 - [ ] Notebooks
@@ -44,10 +50,10 @@
 
 With **Pip**:
 ```bash
-pip install git+ssh://git@github.com:/{{cookiecutter.bitbucket_username}}/{{cookiecutter.bitbucket_reponame}}
+pip install git+ssh://git@github.com:/{{cookiecutter.git_username}}/{{cookiecutter.git_reponame}}
 ```
 
 With **Poetry**:
 ```bash
-poetry add git+ssh://git@globaldevtools.bbva.com:7999/~{{cookiecutter.bitbucket_username}}/{{cookiecutter.bitbucket_reponame}}
+poetry add git+ssh://git@github.com:/{{cookiecutter.git_username}}/{{cookiecutter.git_reponame}}
 ```

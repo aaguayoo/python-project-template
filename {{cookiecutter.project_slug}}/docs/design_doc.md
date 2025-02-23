@@ -6,7 +6,7 @@
 - Version: 0.1.0
 - Authors:
     - {{cookiecutter.author}} [[{{cookiecutter.email}}](mailto:{{cookiecutter.email}})]
-- Estate: Unknown <span style="color:gray">*(Unknown, Draft, Implemented, Finished, Deprecated)*</span>
+- State: Unknown <span style="color:gray">*(Unknown, Draft, Implemented, Finished, Deprecated)*</span>
 
 ## Main goal
 
