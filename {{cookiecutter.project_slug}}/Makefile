@@ -237,10 +237,10 @@ tag: start-message
 	@echo "\033[0;35m## TAG-VERSION ##\033[0m"
 	@echo "\033[0;35m#################\033[0m"
 ifdef version
-	@echo "Fixing tag/version v${version} from current commit..." && (git tag -a v${version} -m "Bitbucket Reponame v${version}" && echo "\033[0;32mTag v${version} created\033[0m" && git push origin v${version}) || (echo "\033[0;31mERROR:\033[0m Listing all existing tags:" && git tag --list)
+	@echo "Fixing tag/version v${version} from current commit..." && (git tag -a v${version} -m "git Reponame v${version}" && echo "\033[0;32mTag v${version} created\033[0m" && git push origin v${version}) || (echo "\033[0;31mERROR:\033[0m Listing all existing tags:" && git tag --list)
 else
 	@version=$(shell cat pyproject.toml | awk '/^version =/{print $$3}' | xargs); \
-	echo "Fixing tag/version v$$version from current commit..." && (git tag -a v$$version -m "Bitbucket Reponame v$$version" && echo "\033[0;32mTag v$$version created\033[0m" && git push origin v$$version) || (echo "\033[0;31mERROR:\033[0m Listing all existing tags:" && git tag --list)
+	echo "Fixing tag/version v$$version from current commit..." && (git tag -a v$$version -m "git Reponame v$$version" && echo "\033[0;32mTag v$$version created\033[0m" && git push origin v$$version) || (echo "\033[0;31mERROR:\033[0m Listing all existing tags:" && git tag --list)
 	@echo ""
 endif
 	

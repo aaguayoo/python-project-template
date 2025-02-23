@@ -44,7 +44,7 @@
 
 With **Pip**:
 ```bash
-pip install git+ssh://git@globaldevtools.bbva.com:7999/~{{cookiecutter.bitbucket_username}}/{{cookiecutter.bitbucket_reponame}}
+pip install git+ssh://git@github.com:/{{cookiecutter.bitbucket_username}}/{{cookiecutter.bitbucket_reponame}}
 ```
 
 With **Poetry**:

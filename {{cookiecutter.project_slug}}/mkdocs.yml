@@ -1,5 +1,5 @@
 site_name: {{cookiecutter.project_name.title()}}
-repo_url: https://bitbucket.globaldevtools.bbva.com/bitbucket/users/{{cookiecutter.bitbucket_username}}/repos/{{cookiecutter.bitbucket_reponame}}/browse
+repo_url: https://github.com/{{cookiecutter.bitbucket_username}}/{{cookiecutter.bitbucket_reponame}}
 repo_name: Bitbucket
 
 nav:
