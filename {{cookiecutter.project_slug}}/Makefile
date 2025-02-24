@@ -7,11 +7,16 @@
 ##################
 PROJECT_PATH=${PWD}
 
+#################
+## Default target
+#################
+.DEFAULT_GOAL := help
+
 #######
 ## Init
 #######
-.PHONY: init 
-init: start-message project-info poetry-dev
+.PHONY: install
+install: start-message project-info poetry-dev  ## Initialize repo and install dependencies. &&  make install
 
 start-message:
 	@echo ""
@@ -31,7 +36,7 @@ project-info:
 ## API
 ######
 .PHONY: api
-api: start-message
+api: start-message  ## Deploy API. &&  make api
 	@echo "\033[0;35m#######################\033[0m"
 	@echo "\033[0;35m##  RUN PROJECT API  ##\033[0m"
 	@echo "\033[0;35m#######################\033[0m"
@@ -43,7 +48,7 @@ api: start-message
 #################
 ## Change version
 #################
-change-version: start-message
+change-version: start-message  ## Change project version. &&  make change-version version=X.X.X
 	@echo "\033[0;35m######################\033[0m"
 	@echo "\033[0;35m##  CHANGE VERSION  ##\033[0m"
 	@echo "\033[0;35m######################\033[0m"
@@ -54,6 +59,7 @@ ifdef version
 	cat docs/design_doc.md | awk '/- Version:/{gsub($$3,"${version}")};{print}' > temp && mv temp docs/design_doc.md; \
 	cat docs/index.md | awk '/Version:/{gsub($$3,"${version}")};{print}' > temp && mv temp docs/index.md; \
 	cat README.md | awk '/Version:/{gsub($$3,"${version}")};{print}' > temp && mv temp README.md; \
+	cat app/core/config.py | awk '/    VERSION: str =/{gsub($$3,"\"${version}\"")};{print}' > temp && mv temp app/core/config.py; \
 	cat {{cookiecutter.project_slug}}/__init__.py | awk '/^__version__ =/{gsub($$3,"\"${version}\"")};{print}' > temp && mv temp {{cookiecutter.project_slug}}/__init__.py; \
 	cat tests/test_{{cookiecutter.project_slug}}.py | awk '/__version__ ==/{gsub($$4,"\"${version}\"")};{print}' > temp && mv temp tests/test_{{cookiecutter.project_slug}}.py
 	@echo ""
@@ -73,7 +79,7 @@ endif
 ## Commit
 #########
 .PHONY: commit
-commit: start-message pre-commit
+commit: start-message pre-commit  ## Run Git commit using Commitizen. &&  make commit
 	@echo "\033[0;35m##################\033[0m"
 	@echo "\033[0;35m##  GIT COMMIT  ##\033[0m"
 	@echo "\033[0;35m##################\033[0m"
@@ -90,7 +96,7 @@ commit: start-message pre-commit
 ## Documentation
 ################
 .PHONY: docs
-doc-deploy: start-message
+doc-deploy: start-message  ## Deploy MkDocs documentation in Github Pages. &&  make doc-deploy
 	@echo "\033[0;35m##################\033[0m"
 	@echo "\033[0;35m##  DOC DEPLOY  ##\033[0m"
 	@echo "\033[0;35m##################\033[0m"
@@ -111,7 +117,7 @@ else
 	@echo ""
 endif
 
-doc-serve: start-message
+doc-serve: start-message  ## Deploy MkDocs documentation locally. &&  make doc-serve
 	@echo "\033[0;35m#################\033[0m"
 	@echo "\033[0;35m##  DOC SERVE  ##\033[0m"
 	@echo "\033[0;35m#################\033[0m"
@@ -123,7 +129,7 @@ doc-serve: start-message
 ## Jupyter Lab/Notebook
 #######################
 .PHONY: jupyter
-jupyter-lab: start-message
+jupyter-lab: start-message  ## Run Jupyter-Lab. &&  make jupyter-lab
 	@echo "\033[0;35m###################\033[0m"
 	@echo "\033[0;35m##  JUPYTER-LAB  ##\033[0m"
 	@echo "\033[0;35m###################\033[0m"
@@ -131,7 +137,7 @@ jupyter-lab: start-message
 	@poetry run jupyter-lab
 	@echo ""
 
-jupyter-notebook: start-message
+jupyter-notebook: start-message  ## Run Jupyter-Notebook. &&  make jupyter-notebook
 	@echo "\033[0;35m#######################\033[0m"
 	@echo "\033[0;35m##  JUPYTER-NOTEBOOK ##\033[0m"
 	@echo "\033[0;35m#######################\033[0m"
@@ -190,7 +196,7 @@ poetry-prod: start-message
 	@poetry shell
 	@echo ""
 
-poetry-remove: start-message
+poetry-remove: start-message  ## Remove Poetry environment. &&  make poetry-remove
 	@echo "\033[0;35m#####################\033[0m"
 	@echo "\033[0;35m##  POETRY REMOVE  ##\033[0m"
 	@echo "\033[0;35m#####################\033[0m"
@@ -208,7 +214,7 @@ poetry-remove: start-message
 ## Pre-commit
 #############
 .PHONY: pre-commit
-pre-commit: start-message
+pre-commit: start-message  ## Run Pre-Commit-Hooks. &&  make pre-commit
 	@echo "\033[0;35m##################\033[0m"
 	@echo "\033[0;35m##  PRE-COMMIT  ##\033[0m"
 	@echo "\033[0;35m##################\033[0m"
@@ -221,7 +227,7 @@ pre-commit: start-message
 ## Profile
 ##########
 .PHONY: profile
-profile: start-message
+profile: start-message  ## Perform package profiling. &&  make profile
 	@echo "\033[0;35m############################\033[0m"
 	@echo "\033[0;35m##  PERFORMANCE ANALYSIS  ##\033[0m"
 	@echo "\033[0;35m############################\033[0m"
@@ -230,11 +236,23 @@ profile: start-message
 	@mv plot.png profiling/memory_profiler_plot.png
 	@echo "\033[0;32mMemory and CPU usage reported in profiling/memory_profiler_plot.png.\033[0m"
 
+#############
+## Pre-commit
+#############
+.PHONY: streamlit 
+streamlit: start-message  ## Deploy Streamlit demo app locally. &&  make streamlit
+	@echo "\033[0;35m#####################\033[0m"
+	@echo "\033[0;35m##  STREAMLIT APP  ##\033[0m"
+	@echo "\033[0;35m#####################\033[0m"
+	@cd '${PROJECT_PATH}/'
+	@poetry run streamlit run demo/{{cookiecutter.project_slug}}_demo.py
+	@echo ""
+
 ##############
 ## Release Tag
 ##############
 .PHONY: tag
-tag: start-message
+tag: start-message  ## Create a new tag version. &&  make tag version=X.X.X
 	@echo "\033[0;35m#################\033[0m"
 	@echo "\033[0;35m## TAG-VERSION ##\033[0m"
 	@echo "\033[0;35m#################\033[0m"
@@ -250,7 +268,7 @@ endif
 ## Tests
 ########
 .PHONY: test
-test: start-message
+test: start-message  ## Run tests using Pytest and Code-Coverage. &&  make test
 	@echo "\033[0;35m#############\033[0m"
 	@echo "\033[0;35m##  TESTS  ##\033[0m"
 	@echo "\033[0;35m#############\033[0m"
@@ -263,56 +281,15 @@ test: start-message
 ## Help
 #######
 .PHONY: help
-help: start-message
-	@echo "####################################################################"
-	@echo "##                     MAKEFILE FOR PYTHON - PROJECT              ##"
-	@echo "####################################################################"
+help: start-message ## DEFAULT. Show this help message. &&  make help
+	@echo "\033[1;35m####################################################################\033[0m"
+	@echo "\033[1;35m##                     MAKEFILE FOR PYTHON - PROJECT              ##\033[0m"
+	@echo "\033[1;35m####################################################################\033[0m"
 	@echo ""
-	@echo "   Targets:   "
+	@echo "Use as: \033[32mmake <target> <option>=<value>\033[0m"
 	@echo ""
-	@echo "   - init: Initialize repository and set Poetry environment"
-	@echo "     - Check necessary paths and external dependencies"
-	@echo "       Usage: % make"
-	@echo ""
-	@echo "   - commit: Perform Git commit using commitizen"
-	@echo "       Usage: % make commit"
-	@echo ""
-	@echo "   - jupyter-lab: Starts Jupyter Lab"
-	@echo "       Usage: % make jupyter-lab"
-	@echo ""
-	@echo "   - jupyter-notebook: Starts Jupyter Notebook"
-	@echo "       Usage: % make jupyter-notebook"
-	@echo ""
-	@echo "   - poetry-dev: Initialize repo and set Poetry develop environment"
-	@echo "       Usage: % make poetry-remove"
-	@echo ""
-	@echo "   - poetry-prod: Initialize repo and set Poetry production environment"
-	@echo "       Usage: % make poetry-remove"
-	@echo ""
-	@echo "   - poetry-remove: Remove Poetry environment"
-	@echo "       Usage: % make poetry-remove"
-	@echo ""
-	@echo "   - pre-commit: Run git add and pre-commit checks"
-	@echo "       Usage: % make pre-commit"
-	@echo ""
-	@echo "   - profile: Run profilings"
-	@echo "       Usage: % make profile"
-	@echo ""
-	@echo "   - tag: Release tag/version from current commit"
-	@echo "       Usage: % make tag"
-	@echo "       Usage: % make tag versin=X.X.X"
-	@echo ""
-	@echo "   - test: Run pytests and measure code coverage"
-	@echo "       Usage: % make test"
-	@echo ""
-	@echo "   - help: Display this menu"
-	@echo "       Usage: % make help"
-	@echo ""
-	@echo "   - default: init"
-	@echo ""
-	@echo "   Hidden targets:"
+	@echo "Targets available:"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' | awk 'BEGIN {FS = "&&.*?  "}; {printf "%s\n                         \033[33mExample: %s\033[0m\n", $$1, $$2}'
 	@echo "   "
-	@echo "   - start-message"
-	@echo "   - project-info"
-	@echo "   "
-	@echo "####################################################################"
+	@echo "\033[1;35m####################################################################\033[0m"
+

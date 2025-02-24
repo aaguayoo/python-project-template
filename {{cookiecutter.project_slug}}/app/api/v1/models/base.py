@@ -4,13 +4,13 @@ from pydantic import BaseModel
 
 
 class BaseRequest(BaseModel):
-    """DUMMY DOCSTRING."""
+    """Base request."""
 
     request: str
 
 
 class BaseResponse(BaseModel):
-    """DUMMY DOCSTRING."""
+    """Base response."""
 
     request: str
     response: str

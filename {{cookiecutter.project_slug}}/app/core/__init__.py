@@ -1,1 +1,1 @@
-"""AIF-RAG Core module init."""
+"""{{cookiecutter.project_name.title()}} Core module init."""

@@ -1,21 +1,14 @@
 site_name: {{cookiecutter.project_name.title()}}
-repo_url: https://github.com/{{cookiecutter.bitbucket_username}}/{{cookiecutter.bitbucket_reponame}}
-repo_name: Bitbucket
+repo_url: https://github.com/{{cookiecutter.git_username}}/{{cookiecutter.git_reponame}}
+repo_name: {{cookiecutter.project_name.title()}} Github
 
 nav:
     - Home: index.md
     - Dependencies: dependencies.md
     - Examples: examples.md
-    - Governance Framework: governance_framework.md
     - Model Resume: model_resume.md
     - Design Document: design_doc.md
     - Performance Analysis: profiling_doc.md
-    - Model Governance:
-        - Annex: model_governance/annex.md
-        - Data: model_governance/data.md
-        - Deployment: model_governance/deployment.md
-        - Qulaity Assurance: model_governance/quality_assurance.md
-        - Use Case: model_governance/use_case.md
     - Module Reference:
         - Constants: module_reference/constants.md
         - Decorators: module_reference/decorators.md
@@ -50,7 +43,7 @@ theme:
         - content.code.copy
     icon:
       logo: material/book-open-page-variant
-      repo: fontawesome/brands/bitbucket
+      repo: fontawesome/brands/github
       alternate: fontawesome/solid/earth-europe
 
 site_dir: site
@@ -123,7 +116,6 @@ markdown_extensions:
 plugins:
     - search
     - autorefs
-    - mkdocstrings
     - mkdocstrings:
         handlers:
             python:

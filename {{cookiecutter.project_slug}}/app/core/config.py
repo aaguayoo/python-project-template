@@ -1,12 +1,12 @@
-"""AIF-RAG API config."""
+"""{{cookiecutter.project_name.title()}} API config."""
 
 
 class Settings:
-    """DUMMY DOCSTRING."""
+    """API settings."""
 
-    APP_NAME: str = "AIF-RAG Toolkit API"
+    APP_NAME: str = "{{cookiecutter.project_name.title()}} API"
     VERSION: str = "0.1.0"
-    DESCRIPTION: str = "API with version control for the AIF-RAG Toolkit"
+    DESCRIPTION: str = "{{cookiecutter.description}}"
 
 
 settings = Settings()

@@ -1,3 +1,5 @@
+![Python-Project-Template]({{cookiecutter.project_slug}}/docs/img/pyprotemp_land.png)
+
 # Python Project Template
 
 Version: **v0.2.0**
@@ -67,7 +69,7 @@ To use this repo as template follow these steps:
             ```
         3. Enter directory:
             ```bash
-            user@host$ cd <bibucket_reponame>
+            user@host$ cd <git_reponame>
             ```
 
 2. Enter your repository and run the following command:
@@ -84,7 +86,7 @@ To use this repo as template follow these steps:
 
     2. Enter to your repo directory:
         ```bash
-        user@host$ cd <bibucket_reponame>
+        user@host$ cd <git_reponame>
         ```
 
     3. Copy all the necessary files from the `python-project-template` to your repo:
