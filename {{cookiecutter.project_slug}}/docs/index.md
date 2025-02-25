@@ -1,4 +1,4 @@
-![BBVA-AIF](img/bbva.png)
+![Python-Project-Template](img/pyprotemp_land.png)
 
 # {{cookiecutter.project_name.title()}}
 

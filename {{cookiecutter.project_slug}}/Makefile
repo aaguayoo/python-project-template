@@ -231,7 +231,7 @@ profile: start-message  ## Perform package profiling. &&  make profile
 	@echo "\033[0;35m############################\033[0m"
 	@echo "\033[0;35m##  PERFORMANCE ANALYSIS  ##\033[0m"
 	@echo "\033[0;35m############################\033[0m"
-	@echo "Running CPU and memory profiling..."
+	@echo "Running CPU and RAM memory profiling..."
 	@poetry run python '${PROJECT_PATH}/profiling/{{cookiecutter.project_slug}}_profiling.py' > profiling/memory_profiler.log && echo "\033[0;32mProfiling log saved in profiling/memory_profiler.log.\033[0m" || echo "\033[0;31mError running performance anlaysis.\033[0m"
 	@mv plot.png profiling/memory_profiler_plot.png
 	@echo "\033[0;32mMemory and CPU usage reported in profiling/memory_profiler_plot.png.\033[0m"

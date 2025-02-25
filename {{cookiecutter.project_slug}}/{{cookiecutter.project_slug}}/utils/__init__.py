@@ -1,3 +1,3 @@
 """{{cookiecutter.project_name.title()}} package utilities."""
 
-_all_= []
+_all_ = []

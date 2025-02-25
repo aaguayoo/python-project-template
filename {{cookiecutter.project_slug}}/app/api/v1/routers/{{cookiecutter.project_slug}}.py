@@ -2,8 +2,8 @@
 
 from fastapi import APIRouter, HTTPException  # type: ignore
 
-from {{cookiecutter.project_slug}} import __version__
 from app.api.v1.models.base import BaseRequest, BaseResponse
+from {{cookiecutter.project_slug}} import __version__
 
 router = APIRouter()
 

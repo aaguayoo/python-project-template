@@ -20,8 +20,8 @@ nav:
 
 theme:
     name: material
-    logo: 'img/ai.png'
-    favicon: 'img/ai.png'
+    logo: 'img/pyprotemp.png'
+    favicon: 'img/pyprotemp.png'
     palette:
         -   scheme: bbva
             toggle:

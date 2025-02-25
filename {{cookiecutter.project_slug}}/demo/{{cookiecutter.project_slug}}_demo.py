@@ -1,30 +1,32 @@
 """{{cookiecutter.project_name.title()}} Streamlit Demo App."""
-import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
+import streamlit as st
 
-def main():
-    st.set_page_config(page_title="Mi App de Streamlit", layout="wide")
-    
+
+def main() -> None:
+    """Main fucntion."""
+    st.set_page_config(page_title="My Streamlit app.", layout="wide")
+
     st.sidebar.title("Menú")
-    opcion = st.sidebar.selectbox("Selecciona una opción:", ["Inicio", "Gráfica", "Acerca de"])
-    
-    if opcion == "Inicio":
-        st.title("Bienvenido a mi app de Streamlit")
-        st.write("Esta es una aplicación de ejemplo usando Streamlit.")
-    
-    elif opcion == "Gráfica":
-        st.title("Gráfico de ejemplo")
+    opcion = st.sidebar.selectbox("Select one option:", ["Start", "Graph", "About"])
+
+    if opcion == "Start":
+        st.title("Welcome to my Streamlit app.")
+        st.write("This is an example app using Streamlit.")
+
+    elif opcion == "Graph":
+        st.title("Example graph")
         fig, ax = plt.subplots()
         x = np.linspace(0, 10, 100)
         y = np.sin(x)
         ax.plot(x, y)
         st.pyplot(fig)
-    
-    elif opcion == "Acerca de":
-        st.title("Acerca de")
-        st.write("Esta aplicación fue creada como una plantilla básica para proyectos en Streamlit.")
+
+    elif opcion == "About":
+        st.title("About")
+        st.write("This is a small Streamlit app template.")
+
 
 if __name__ == "__main__":
     main()
-
