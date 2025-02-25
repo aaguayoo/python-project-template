@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-project-template"
-version = "0.1.0"
+version = "0.2.0"
 description = "General Cookiecutter template for Python project."
 authors = ["Alejandro Aguayo-Ortiz <aaguayoo92@gmail.com>"]
 readme = "README.md"
