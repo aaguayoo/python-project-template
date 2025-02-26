@@ -44,6 +44,7 @@ one terminal open along with the code editor of your choice.
 1. In the new repository, <a href="../../edit/develop/cookiecutter.json">complete the project setup</a> by editing the `cookiecutter.json` file, with the name of the package (project), module, description and authors.
 2. Commit your changes.
 3. Wait <a href="../../actions">Setup Repository Action</a> to complete.
+4. If the Github Actions fail, go to <a href="../../settings/actions">Settings/Actions</a> and in "Workflow permissions" mark _Read and write permissions_ and _Allow GitHub Actions to create and approve pull requests_.
 
 
 ---
@@ -72,13 +73,7 @@ To use this repo as template follow these steps:
             user@host$ cd <git_reponame>
             ```
 
-2. Enter your repository and run the following command:
-    ```bash
-    git archive --format=tar --remote=git@github.com:aaguayoo/python-project-template.git HEAD ":(exclude).misc/" | tar xf -
-    ```
-
-    If you are getting the following error: `fatal: operation not supported by protocol` it means that your git server not longer accepts SSH protocol, and git archive does not work with HTTP. In that case, these are the alternative steps. 
-
+2. Enter your repository and follow this steps:
     1. Exit the directory of your repository and clone this one:
         ```bash
         user@host$ git clone git@github.com:aaguayoo/python-project-template.git
