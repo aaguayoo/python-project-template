@@ -12,6 +12,7 @@ class {{cookiecutter.project_slug.replace('_', ' ').title().replace(' ', '')}}Lo
         "ERROR": 1,
         "WARNING": 2,
         "INFO": 3,
+        "{{cookiecutter.project_name}}.upper()": 4,
     }
 
     def __init__(self, name: str) -> None:
@@ -22,7 +23,7 @@ class {{cookiecutter.project_slug.replace('_', ' ').title().replace(' ', '')}}Lo
         for level_name, level_value in self.LEVELS.items():
             setattr(
                 self.logger,
-                level_name.lower().replace('-', '_').replace(' ', '_')
+                level_name.lower().replace('-', '_').replace(' ', '_'),
                 self._create_log_method(level_value),
             )
 
