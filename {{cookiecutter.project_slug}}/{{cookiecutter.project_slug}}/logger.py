@@ -12,7 +12,7 @@ class {{cookiecutter.project_slug.replace('_', ' ').title().replace(' ', '')}}Lo
         "ERROR": 1,
         "WARNING": 2,
         "INFO": 3,
-        "{{cookiecutter.project_name}}.upper()": 4,
+        "{{cookiecutter.project_name.upper()}}": 4,
     }
 
     def __init__(self, name: str) -> None:
