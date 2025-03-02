@@ -49,7 +49,7 @@ one terminal open along with the code editor of your choice.
 4. Wait <a href="../../actions">Setup Repository Action</a> to complete.
 5. Finally Re-Run the action workflow.
 
-![using_template](".misc/using_template.gif")
+![using_template](.misc/using_template.gif)
 
 ---
 
