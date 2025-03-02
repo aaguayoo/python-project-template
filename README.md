@@ -43,11 +43,13 @@ one terminal open along with the code editor of your choice.
 
 ### Complete setup
 
-1. In the new repository, <a href="../../edit/develop/cookiecutter.json">complete the project setup</a> by editing the `cookiecutter.json` file, with the name of the package (project), module, description and authors.
-2. Commit your changes.
-3. Wait <a href="../../actions">Setup Repository Action</a> to complete.
-4. If the Github Actions fail, go to <a href="../../settings/actions">Settings/Actions</a> and, in the "Workflow permissions" section, mark _Read and write permissions_ and _Allow GitHub Actions to create and approve pull requests_.
+1. Go to <a href="../../settings/actions">Settings/Actions</a> and, in the "Workflow permissions" section, mark _Read and write permissions_ and _Allow GitHub Actions to create and approve pull requests_.
+2. In the new repository, <a href="../../edit/develop/cookiecutter.json">complete the project setup</a> by editing the `cookiecutter.json` file, with the name of the package (project), module, description and authors.
+3. Commit your changes.
+4. Wait <a href="../../actions">Setup Repository Action</a> to complete.
 5. Finally Re-Run the action workflow.
+
+![using_template](".misc/using_template.gif")
 
 ---
 
