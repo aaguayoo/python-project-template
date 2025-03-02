@@ -3,6 +3,7 @@
 # Python Project Template
 
 Author: [Alejandro Aguayo-Ortiz](mailto:aaguayoo92@gmail.com)
+
 Version: **v0.2.0**
 
 ---
