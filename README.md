@@ -182,12 +182,10 @@ ones (see pyproject.toml).
 
 7. To start the virtual environment run one of the following commands:
     ```bash
-    user@host$ make
-    user@host$ make poetry-dev # (same as plain make)
-    user@host$ make poetry-prod
+    user@host$ make install
     ```
 
-    These commands enable either the dev(default) or prod environments. Two files are created with all the installed dependencies (poetry.lock) and  configuration for the path to the environment (poetry.toml). Moreover, requirements.txt-pip-like files are saved in the `requierements` directory, in case you want to enable your own Virtualenv environment.
+    Two files are created with all the installed dependencies (poetry.lock) and  configuration for the path to the environment (poetry.toml). Moreover, requirements.txt-pip-like files are saved in the `requierements` directory, in case you want to enable your own Virtualenv environment.
 
     After this, your terminal prompt must look like:
     ```bash
@@ -215,6 +213,29 @@ ones (see pyproject.toml).
 ---
 
 ## Using Makefile
+
+- **Help**
+
+    To see all possible Makefile targets, run:
+    ```bash
+    (environment) user@host$ make
+    ``` 
+    or
+    ```bash
+    (environment) user@host$ make help
+    ``` 
+
+    You can add your own Makefile targets and include them in the `make help` output by
+    following the structure find in the predefined ones.
+
+- **API swagger**:
+
+    This target run a `uvicorn` command to deploy a simple FastAPI implementation of the
+    project.
+    ```bash
+    (environment) user@host$ make api
+    ```
+
 
 - **Change version**[^1]:
 
